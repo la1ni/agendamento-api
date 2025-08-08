@@ -1,0 +1,21 @@
+CREATE TABLE profissional (
+    id UUID DEFAULT RANDOM_UUID() PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    telefone VARCHAR(16) NOT NULL
+);
+
+CREATE TABLE servico (
+    id UUID DEFAULT RANDOM_UUID() PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    valor DECIMAL(19,2) NOT NULL,
+    duracao BIGINT NOT NULL
+);
+
+CREATE TABLE usuario (
+     id UUID DEFAULT RANDOM_UUID() PRIMARY KEY,
+     nome VARCHAR(255) NOT NULL,
+     email VARCHAR(255) NOT NULL,
+     telefone VARCHAR(16) NOT NULL
+
+)
