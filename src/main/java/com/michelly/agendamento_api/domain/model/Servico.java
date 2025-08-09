@@ -1,19 +1,13 @@
 package com.michelly.agendamento_api.domain.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 
 import java.math.BigDecimal;
 import java.time.Duration;
 import java.util.UUID;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+
 @Entity
 @Table(name = "servico")
 public class Servico {
@@ -28,4 +22,44 @@ public class Servico {
     @Column(nullable = false)
     private Duration duracao;
 
+    public Servico(String nome, BigDecimal valor, Duration duracao) {
+        this.nome = nome;
+        this.valor = valor;
+        this.duracao = duracao;
+    }
+
+    public Servico() {
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public BigDecimal getValor() {
+        return valor;
+    }
+
+    public void setValor(BigDecimal valor) {
+        this.valor = valor;
+    }
+
+    public Duration getDuracao() {
+        return duracao;
+    }
+
+    public void setDuracao(Duration duracao) {
+        this.duracao = duracao;
+    }
 }
