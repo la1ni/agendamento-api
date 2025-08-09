@@ -4,6 +4,7 @@ import com.michelly.agendamento_api.domain.model.Usuario;
 import com.michelly.agendamento_api.dtos.in.RequestCriarUsuarioDto;
 import com.michelly.agendamento_api.dtos.out.ResponseDadosUsuarioDto;
 import com.michelly.agendamento_api.dtos.out.ResponserUsuarioCriadoDto;
+import com.michelly.agendamento_api.infra.exception.NotFoundException;
 import com.michelly.agendamento_api.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,7 +31,7 @@ public class UsuarioService {
         if (usuario.isPresent()) {
             return new ResponseDadosUsuarioDto(usuario.get().getNome(), usuario.get().getEmail(), usuario.get().getTelefone());
         }
-        else throw new Exception();
+        else throw new NotFoundException("Usuario", id);
     }
 
     public List<ResponseDadosUsuarioDto> buscaUsuarios() {
