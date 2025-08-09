@@ -1,11 +1,7 @@
 package com.michelly.agendamento_api.domain.model;
 
-import com.michelly.agendamento_api.dtos.in.CriarUsuarioDto;
+import com.michelly.agendamento_api.dtos.in.RequestCriarUsuarioDto;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import java.util.UUID;
 
 @Entity
@@ -53,7 +49,7 @@ public class Usuario {
     }
 
     // Ver se faz sentido receber o dto que veio de fora da API aqui
-    public Usuario(CriarUsuarioDto usuarioDto) {
+    public Usuario(RequestCriarUsuarioDto usuarioDto) {
         this.nome = usuarioDto.nome();
         this.email = usuarioDto.email();
         this.telefone = usuarioDto.telefone();
